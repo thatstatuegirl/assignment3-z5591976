@@ -1,0 +1,99 @@
+<!doctype html> 
+
+<html lang="en"> 
+
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Irene's Laptop: Document</title> 
+<link rel="stylesheet" href="styleDocument.css">
+<script src="java.js"></script>
+ 
+<body> 
+
+<div class="windowsButton">
+
+<p style="position: absolute; top: 7px; left: 37px;"><b>Pinned</b></p>
+
+<a href="browser.html">  <img src="images/chrome.png" class="windowsBrowser"></a>
+  <div style="position: absolute; top: 105px; left: 38px; text-align: center; font-size: 80%;">Browser</div>
+
+    <a href="document.html"><img src="images/document.png" class="windowsDocuments"></a>
+  <div style="position: absolute; top: 105px; left: 128px; text-align: center; font-size: 80%;">Documents</div>
+
+      <a href="Email.html"><img src="images/email.png" class="windowsEmail"></a>
+  <div style="position: absolute; top: 105px; left: 241px; text-align: center; font-size: 80%;">Email</div>
+
+
+    <a href="Messages.html"><img src="images/messages.png" class="windowsMessages"></a>
+      <div style="position: absolute; top: 203px; left: 35px; text-align: center; font-size: 80%;">Messages</div>
+
+     <a href="documentMusic.html"><img src="images/music.png" class="windowsMusic"></a>
+          <div style="position: absolute; top: 203px; left: 125px; text-align: center; font-size: 80%;">Music Player</div>
+
+
+
+<div style="position: absolute; top: 310px; left: 37px; text-align: center; font-size:90%"><b>Recently used</b></div>
+
+
+    <a href="email.html"><img src="images/email.png" class="windowsEmail2"></a>
+              <div style="position: absolute; top: 350px; left: 110px; text-align: center; font-size: 80%;">Email</div>
+                <div style="position: absolute; top: 367px; left: 109px; text-align: center; font-size: 60%;"><i>Yesterday 11:57pm</i></div>
+</div>
+
+<!-- \Navbar here -->
+<div class="navbar" id="myNavbar">
+  <a href="document.html" class="active"><img src="images/icon.png" height="40px"></a>
+ <a href="messages.html"><img src="images/messages.png" height="40px"></a>
+  <a href="email.html"><img src="images/email.png" height="40px"></a>
+  <a href="browser.html"><img src="images/chrome.png" height="40px"></a>
+  <a href="document.html" class="active"><img src="images/document.png" height="40px"></a>
+  <a href="documentmusic.html"><img src="images/music.png" height="40px"></a>
+ <img src="images/nointernet.png" height="20px" style="position: absolute; right: 130px; bottom:12px;">
+<img src="images/battery.png" height="20px" style="position: absolute; right: 100px; bottom:12px;">
+<p style="position:absolute; right: 21px; bottom:11px; font-size:small;"><span id="current-time"></span></p>
+<p style="position:absolute; right:15px; bottom: -8px;font-size:small">13/01/2052</p>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString(); // Formats time based on user's locale
+  document.getElementById('current-time').textContent = formattedTime;
+}
+
+// Call the function once to display the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
+</script>
+</div>
+<img src="images/wordheader.png" style="width:100%;">
+
+                <a href="index.html"><button style="position: absolute; top: 15px; right: 15px; z-index: 2;">X</button></a>
+
+
+<article class="center" style="background-color:white; margin-top:2%; margin-bottom:3%; height:auto; width:100%; max-width:790px; padding:32px; box-sizing:border-box; line-height:1.8;">
+    <h2 style="text-align:center;"><u>Law Company v. EverMind™: Preliminary Research</u></h2>
+    <p style="text-align:center;"><i>As written by Irene Mirica, Junior Associate at Law Company.</i></p>
+    <p><strong>Defendant:</strong> EverMind™, est. 2050 by M. Tomás.</p>
+    <p><strong>Legal person/s assigned to the case:</strong> I. Mirica (primary), J. Todd (consultant).</p>
+    <h3><u>About EverMind™</u></h3>
+    <p>EverMind™ is an experimental technology company based in Yosemite Wilds, California (a location previously known by the name of Yosemite National Park). It was established in the first quarter of 2050 by renowned scientist and technician M. Tomás, who specialised in neuroscience research and development. M. Tomás is considered a leading researcher in the field of neuroscience, specialising in the creation and development of Brain-Computer Interfaces (BCIs).</p>
+    <p>In 2047 Tomás had a breakthrough in synchronising the neuronal action potentials measured in the brain to the magnetic sensors of the computer, which led to the development of the first EverMind™ prototype being developed in late 2048. By mid-2049 EverMind™ became a registered global company with active alpha-testers; by late 2049 EverMind™ had moved into the beta-testing phase; and in February 2050 EverMind™ was officially released to the public. Since then it has catapulted into widespread global use, with approximately 78% of citizens worldwide using EverMind™ on a weekly basis (source: <u>The Daily Mail, Jul 2051</u>).</p>
+    <p>EverMind™ uses virtual reality to offer users access to three of their different ‘worlds’— <i>Horizon</i>, a sky-based world marketed around ‘play’; <i>The Deep Sea: Thalassa</i> (<i>Thalassa</i>), a water-based world marketed around ‘education’; and <i>Fields of Aster</i> (<i>Fields</i>), an earth-based world marketed around ‘relaxation’. Each is accessible via EverMind™ clinics, available in selected locations, and use of the technology requires a fee, payable via a weekly, monthly, or yearly pay plan, with a one month free trial also available. Globally, EverMind™ is considered to be a dominant company in the virtual reality and experimental technology fields, and has been widely considered a prominent factor in the upswing of mental health statistics.</p>
+    <h3><u>Controversies</u></h3>
+    <p>There has been some controversy sparked in regards to EverMind™ and environmentality, with some users claiming EverMind played a not-insignificant role in the destruction & deforestation of Yosemite Wilds (previously Yosemite National Park) (source: <u>Free Encyclopedia.org</u>). Another popular critique of the company is that it does not offer an accurate representation of the real-world inspirations behind each of its ‘worlds’: notably, <i>Thalassa</i> and <i>Fields</i> are the main sources of this critique, being based on Australia’s Great Barrier Reef and France’s Provence Fields (respectively), neither of which exist in the present. However, this critique can be easily rebutted with the statement that EverMind™ has never claimed to offer an accurate representation of the current world, instead offering only “an escape from reality” (source: <u>EverMind™ company website</u>).</p>
+    <p>Other critiques involving EverMind™ include:</p>
+    <ul>
+        <li>Work/life balance destruction (sources: <u>x</u>, <u>x</u>, <u>x</u>). Primarily users advertising their own lack of self-control; not much to build a case on here.</li>
+        <li>Fallibility of recent technology (see <u>2051 EverMind Reality Scare</u>). Though there is no concrete proof these events were caused by technology hackers, compared to other cases such as the SunGold leaks and the Astralink scandal, the facts seem to match. Further research is required.</li>
+        <li>Data privacy. In a company this big, with access to this much personal information, data privacy will always be a concern. This could be a sticking point, especially since V. Cooper (public representative of EverMind™) has yet to address the data privacy and security concerns, nor has she presented the measures EverMind™ is taking to prevent leaks.</li>
+        <li>(As yet unlinked) Robbery cases of <u>Aug 2051</u>, <u>Nov 2051</u>, and <u>Jan 2052</u>. These are all stretches, but the fact remains that the break-ins occurred when the members of the household were either away or in one EverMind™’s virtual reality locations. Possibly this could be linked to the fallibility of recent technology bullet point above.</li>
+    </ul>
+    <p>To date (12/01/52) the most r</p>
+</article>
+</body> 
+
+</html>
+

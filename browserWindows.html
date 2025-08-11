@@ -1,0 +1,157 @@
+<!doctype html> 
+
+<html lang="en"> 
+
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Irene's Laptop: Web Browser</title> 
+<link rel="stylesheet" href="browserStyle.css">
+<script src="java.js"></script></head>
+ 
+<body> 
+
+<div class="windowsButton">
+
+<p style="position: absolute; top: 7px; left: 37px;"><b>Pinned</b></p>
+
+<a href="browser.html">  <img src="images/chrome.png" class="windowsBrowser"></a>
+  <div style="position: absolute; top: 105px; left: 38px; text-align: center; font-size: 80%;">Browser</div>
+
+    <a href="document.html"><img src="images/document.png" class="windowsDocuments"></a>
+  <div style="position: absolute; top: 105px; left: 128px; text-align: center; font-size: 80%;">Documents</div>
+
+      <a href="Email.html"><img src="images/email.png" class="windowsEmail"></a>
+  <div style="position: absolute; top: 105px; left: 241px; text-align: center; font-size: 80%;">Email</div>
+
+
+    <a href="Messages.html"><img src="images/messages.png" class="windowsMessages"></a>
+      <div style="position: absolute; top: 203px; left: 35px; text-align: center; font-size: 80%;">Messages</div>
+
+     <a href="browserMusic.html"><img src="images/music.png" class="windowsMusic"></a>
+          <div style="position: absolute; top: 203px; left: 125px; text-align: center; font-size: 80%;">Music Player</div>
+
+
+
+<div style="position: absolute; top: 310px; left: 37px; text-align: center; font-size:90%"><b>Recently used</b></div>
+
+
+    <a href="browserEmail.html"><img src="images/email.png" class="windowsEmail2"></a>
+              <div style="position: absolute; top: 350px; left: 110px; text-align: center; font-size: 80%;">Email</div>
+                <div style="position: absolute; top: 367px; left: 109px; text-align: center; font-size: 60%;"><i>Yesterday 11:57pm</i></div>
+</div>
+
+  <!-- Bottom Navbar here -->
+<div class="navbar" id="myNavbar">
+  <a href="browser.html" class="active"><img src="images/icon.png" height="40px"></a>
+ <a href="Messages.html"><img src="images/messages.png" height="40px"></a>
+  <a href="Email.html"><img src="images/email.png" height="40px"></a>
+  <a href="index.html" class="active"><img src="images/chrome.png" height="40px"></a>
+  <a href="document.html"><img src="images/document.png" height="40px"></a>
+  <a href="browserMusic.html"><img src="images/music.png" height="40px"></a>
+    <img src="images/nointernet.png" height="20px" style="position: absolute; right: 145px; bottom:12px;">
+<img src="images/battery.png" height="20px" style="position: absolute; right: 115px; bottom:12px;">
+<p style="position:absolute; right: 36px; bottom:11px; font-size:small;"><span id="current-time"></span></p>
+<p style="position:absolute; right:30px; bottom: -8px;font-size:small">13/01/2052</p>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString(); // Formats time based on user's locale
+  document.getElementById('current-time').textContent = formattedTime;
+}
+
+// Call the function once to display the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
+</script>
+</div>
+
+
+
+<!-- Top Navbar here -->
+<div class="topnav">
+  <a class="active" href="browser.html">EverMind: Forums</a>
+  <a href="browser1.html">EverMind: Support</a>
+  <a href="browser2.html">cissalie on Blogblr</a></div>
+
+
+
+<!-- 5-row layout -->
+  <div class="row1" style="height: 30px; left:0;">
+     <a href="browserInternet.html"> <button> ◄ </button></a>
+   <a href="browserInternet.html"> <button style="margin-left:10px;"> ⟳ </button></a>
+    <p>‎
+    https://www.evermind-reality.com/forums/english/gen/bug-reports</p></div>
+ <div class="rows-container">
+<div class="row" style="height: 25px;"></div>
+  <div class="row" style="height: 70px;">
+    <div class="topnav1">
+         <a href="browserInternet.html"><img src="images/evermind.png" height="50px" ></a>
+  <a href="browserInternet.html" style="color:black;">About</a>
+  <a href="browserInternet.html" style="color:black;">News</a>
+  <a href="browserInternet.html" style="color:black;">Locations</a>
+<a href="browserInternet.html" style="color:black;">Forums</a>
+<a href="browserInternet.html" style="color:black;">Support</a>
+
+</div>
+
+</div>
+  <hr>
+  <div class="row" style="height: 40px;">
+    <p style="font-size:smaller">
+      <a href="browserInternet.html" style="color:black;">Home</a> > 
+      <a href="browserInternet.html" style="color:black;">English</a> > 
+      <a href="browserInternet.html" style="color:black;">General Discussion</a> > 
+      <a href="browserInternet.html" style="color:black;">Bug Reports</a>
+    </p>
+    </div>
+    <div class="row" style="height: 50px;">
+    <p style="font-size:xx-large">BUG REPORTS</p>
+    </div>
+  <hr>
+  <div class="row2" style="height: 50px;">
+    <a href="browserInternet.html" style="color:black;">1</a>
+  <p>‎ ‎ ‎ </p>
+  <a href="browserInternet.html" style="color:black;">2</a>
+  <p>‎ ‎ ‎ </p>
+  <a href="browserInternet.html" style="color:black;">3</a>
+  <p>‎ ‎ ‎ </p>
+  <a href="browserInternet.html" style="color:black;">4</a>
+  <p>‎ ‎ ‎ </p>
+  <a href="browserInternet.html" style="color:black;">5</a>
+  <p>‎ ‎ ‎ </p>
+  <a href="browserInternet.html" style="color:black;">NEXT</a>
+  <p>‎ ‎ ‎ </p>
+<a href="browserInternet.html" style="color:black;" title="LAST">>></a>
+<p>‎ ‎ ‎ </p>
+<p style="font-size:small">Page 1 of 1048</p>
+<p height="50px"style="position: absolute; right:35px;">Status</p>
+</div>
+
+
+
+
+<hr>
+<div class="row3" style="height: 90px;"><a href="browserInternet.html" style="color:black;">Fix for T&Cs appearing every log-in</a>
+<img src="images/check.png" height="50px"style="position: absolute; right:30px;">
+</div>  <hr>
+
+<div class="row3" style="height: 90px;"><a href="browserInternet.html" style="color:black;">EverMind Update 3.59 Known Issues </a><img src="images/cross.png" height="50px"style="position: absolute; right:30px;"></div>  <hr>
+
+<div class="row3" style="height: 90px;"><a href="browserInternet.html" style="color:black;">HELP!</a><img src="images/question.png" height="50px"style="position: absolute; right:30px;"></div>  <hr>
+
+<div class="row3" style="height: 90px;"><a href="browserInternet.html" style="color:black;">IDP. Generic Infection in EM Launcher/Retail Client files.</a><img src="images/question.png" height="50px"style="position: absolute; right:30px;">
+</div>  <hr>
+
+<div class="row3" style="height: 90px;"><a href="browserInternet.html" style="color:black;">Horizon Area 1: Dawn contamination bug</a><img src="images/check.png" height="50px"style="position: absolute; right:30px;">
+</div> 
+</div>
+
+
+</body> 
+
+</html>
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Irene's Laptop: Email (Draft)</title>
+    <link rel="stylesheet" href="style.css">
+<script src="java.js"></script>
+
+</head>
+<body>
+
+<div class="windowsButton">
+
+<p style="position: absolute; top: 7px; left: 37px;"><b>Pinned</b></p>
+
+<a href="browser.html">  <img src="images/chrome.png" class="windowsBrowser"></a>
+  <div style="position: absolute; top: 105px; left: 38px; text-align: center; font-size: 80%;">Browser</div>
+
+    <a href="document.html"><img src="images/document.png" class="windowsDocuments"></a>
+  <div style="position: absolute; top: 105px; left: 128px; text-align: center; font-size: 80%;">Documents</div>
+
+      <a href="email.html"><img src="images/email.png" class="windowsEmail"></a>
+  <div style="position: absolute; top: 105px; left: 241px; text-align: center; font-size: 80%;">Email</div>
+
+
+    <a href="Messages.html"><img src="images/messages.png" class="windowsMessages"></a>
+      <div style="position: absolute; top: 203px; left: 35px; text-align: center; font-size: 80%;">Messages</div>
+
+      <a href="emailMusic.html"><img src="images/music.png" class="windowsMusic"></a>
+          <div style="position: absolute; top: 203px; left: 125px; text-align: center; font-size: 80%;">Music Player</div>
+
+
+
+<div style="position: absolute; top: 310px; left: 37px; text-align: center; font-size:90%"><b>Recently used</b></div>
+
+
+    <a href="email.html"><img src="images/email.png" class="windowsEmail2"></a>
+              <div style="position: absolute; top: 350px; left: 110px; text-align: center; font-size: 80%;">Email</div>
+                <div style="position: absolute; top: 367px; left: 109px; text-align: center; font-size: 60%;"><i>Yesterday 11:57pm</i></div>
+</div>
+  
+ <div class="navbar" id="myNavbar">
+    <a href="email.html" class="active"><img src="images/icon.png" height="40px"></a>
+    <a href="emailMessages.html"><img src="images/messages.png" height="40px"></a>
+    <a href="index.html" class="active"><img src="images/email.png" height="40px"></a>
+    <a href="browser.html"><img src="images/chrome.png" height="40px"></a>
+    <a href="document.html"><img src="images/document.png" height="40px"></a>
+      <a href="emailMusic.html"><img src="images/music.png" height="40px"></a>
+ <img src="images/nointernet.png" height="20px" style="position: absolute; right: 130px; bottom:12px;">
+<img src="images/battery.png" height="20px" style="position: absolute; right: 100px; bottom:12px;">
+<p style="position:absolute; right: 21px; bottom:11px; font-size:small;"><span id="current-time"></span></p>
+<p style="position:absolute; right:15px; bottom: -8px;font-size:small">13/01/2052</p>
+
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString(); // Formats time based on user's locale
+  document.getElementById('current-time').textContent = formattedTime;
+}
+
+// Call the function once to display the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
+</script>
+  </div>
+
+  
+
+<article style="background-color:rgb(255, 249, 158); position:fixed; right:45px; top:50px; height:250px; width:250px; z-index: -1;">
+  <h2 style="text-align:center;">To-do list:</h2>
+  <p style="position:fixed; right:105px; top:100px;">- Respond to messages</p>
+  <p style="position:fixed; right: 94px; top:120px;">- Answer email from boss</p>
+    <p style="position:fixed; right:123px; top:140px;">- Read over draft doc</p>
+  <p style="position:fixed; right: 83px; top:160px;">- Continue researching EM</p>
+</article>
+
+   <div class="email-draft-container">
+      <a href="index.html"><button style="position: absolute; top: 7px; left: 5px; z-index: 2;">X</button></a>
+        <div class="email-field">
+            
+            <span class="email-label">To:</span>
+<span class="email-input">counsel-jtodd@lawcompany.org</span>        
+</div>
+<br>
+        <div class="email-field">
+            <span class="email-label">Subject:</span>
+            <span class="email-subject">Re: Re: Re: EverMind Case</span>
+        </div><br>
+        <div class="email-field">
+            <span class="email-label">Body:</span>
+            <br></br>
+            <textarea class="email-body">Good afternoon,
+
+With all due respect, sir, you didn't answer my last question. Taking on EverMind is crazy, tantamount to social suicide. There is no possibility we win this case. Continuing to forge ahead is, frankly, a waste of both time and resources. 
+
+Also, I have a personal interest in this company-- EverMind has done wonders for my mental health and it would be a conflict of interest to continue to use me on this case. Besides, this is stupid and monumentally impossible anyways.
+
+Ugh. Maybe delete that last bit.|
+
+
+
+
+[VIEW PAST CONVERSATIONS]
+-----
+
+Hi Irene,
+
+Thanks for the prompt reply. 
+
+To answer your question, our client has specifically requested to remain anonymous, for fear of gaining unwanted attention. To answer your second, unasked question, you were chosen for this case because of your flawless track record, despite any personal errors you may have made. 
+
+Let me know if you need anything further, and best of luck with your research.
+
+Cheers,
+J. Todd
+Lead Counsel, Law Company
+
+
+
+-----
+Good evening,
+
+Hope this email finds you well. 
+
+Though I'm honoured to be chosen for such a prestigious case as this, I do have a question regarding our client: specifically, who are they? I understand the need for discretion, but I need to know who I'm representing. Furthermore, why EverMind in the first place? They're a massive company who are perceived well in the public sphere, as I can attest to personally. Would you mind explaining your reasoning?
+
+Best,
+Irene Mirica
+Junior Associate, Law Company
+
+
+
+-----
+Greetings Ms. Mirica!
+Delighted to have you on board for the EverMind case. I have no doubt that your expertise will be invaluable in this matter. Attached is the case file, which contains all the information you will need to get started. Please review it at your earliest convenience and let me know if you have any questions or concerns.
+I look forward to your work on this case.
+
+All the best,
+J. Todd
+Lead Counsel, Law Company
+</textarea>
+        <div class="email-actions">
+            <button class="send-btn" onclick="mypopupEmail()" style="cursor:pointer;">Send</button>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

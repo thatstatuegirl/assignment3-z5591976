@@ -1,0 +1,225 @@
+<!doctype html> 
+
+<html lang="en"> 
+
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Irene's Laptop: Web Browser</title> 
+<link rel="stylesheet" href="browserStyleCopyCopy.css">
+<script src="java.js"></script>
+ 
+<body> 
+<!---Close button!!!!!-->
+                <a href="music.html"><button style="position: absolute; top: 15px; right: 15px; z-index: 2;">X</button></a>
+  
+<!-- Top Navbar here -->
+<div class="topnav">
+  <a href="browser.html">EverMind: Forums</a>
+  <a class="active" href="browser1.html">EverMind: Support</a>
+  <a href="browser2.html">cissalie on Blogblr</a></div>
+
+<!-- Bottom Navbar here -->
+<div class="navbar" id="myNavbar">
+  <a href="browser1Windows.html"><img src="images/icon.png" height="40px"></a>
+ <a href="browser1Messages.html"><img src="images/messages.png" height="40px"></a>
+  <a href="browser1Email.html"><img src="images/email.png" height="40px"></a>
+  <a href="index.html" class="active"><img src="images/chrome.png" height="40px"></a>
+  <a href="document.html"><img src="images/document.png" height="40px"></a>
+  <a href="browser.html" class="active"><img src="images/music.png" height="40px"></a>
+   <img src="images/nointernet.png" height="20px" style="position: absolute; right: 145px; bottom:12px;">
+<img src="images/battery.png" height="20px" style="position: absolute; right: 115px; bottom:12px;">
+<p style="position:absolute; right: 36px; bottom:11px; font-size:small;"><span id="current-time"></span></p>
+<p style="position:absolute; right:30px; bottom: -8px;font-size:small">13/01/2052</p>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString(); // Formats time based on user's locale
+  document.getElementById('current-time').textContent = formattedTime;
+}
+
+// Call the function once to display the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
+</script>
+</div>
+
+
+   <div class="row1" style="height: 30px; left:0;">
+ <a href="browserInternet1.html"> <button> ◄ </button></a>
+   <a href="browserInternet1.html"> <button style="margin-left:10px;"> ⟳ </button></a>
+    <p>‎
+    https://www.evermind-reality.com/support/submit/thank-you</p></div>
+ <div class="rows-container">
+<div class="row" style="height: 25px;"></div>
+  <div class="row" style="height: 70px;">
+     <div class="topnav1">
+         <a href="browserInternet.html"><img src="images/evermind.png" height="50px" ></a>
+  <a href="browserInternet.html" style="color:black;">About</a>
+  <a href="browserInternet.html" style="color:black;">News</a>
+  <a href="browserInternet.html" style="color:black;">Locations</a>
+<a href="browserInternet.html" style="color:black;">Forums</a>
+<a href="browserInternet.html" style="color:black;">Support</a>
+
+</div>
+
+</div>
+<hr>
+<p style="font-size:30px; margin-left:320px;"><b>Submit a support ticket</b></p>
+
+<img src="images/Thanks.png" height="250px" width="600px" class="center">
+<br></br>
+<div class="row">
+
+<a href="browserInternet1.html">  <button style="height:60px; width:400px; margin-left:103%; cursor:pointer;"></button><img src="images/home.png" style="position:absolute; height:50px; top:483px; left: 440px;"><div style="position: absolute; top:498px; left: 510px; cursor:pointer;">Return Home?</div></button></a>
+
+</div>
+<br></br>
+</body> 
+<div class="audio-player-container" style="width: 365px;  background: #111; color: #fff; border-radius: 12px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; position:fixed; bottom:56px; margin-left:855px;" >
+
+        <a href="messages.html"><button style="position: sticky; margin-left:340px;">X</button></a>
+
+        <div style="display: flex; align-items: center; width: 100%; margin-bottom: 8px;">
+                <img id="cover-img" src="images/paramore.jpeg" alt="Paramore: Paramore" style="height: 80px; margin-right: 16px;">
+                <div style="display: flex; flex-direction: column;">
+                        <div id="song-title" style="font-size: 1.5em; font-weight: bold;">Ain't It Fun</div>
+                        <div id="song-artist" style="font-size: 1em; font-weight: lighter; color: #bbb; margin-top: 4px;">Paramore</div>
+                </div>
+        </div>
+        <div style="display: flex; align-items: center; width: 100%; justify-content: center; margin-bottom: 8px;">
+                <a href="#" id="prev-btn" style="margin-right: 16px; background: none; border: none; color: #fff; font-size: 1.2em; text-decoration: none;">⏮</a>
+                <button id="pause-btn" style="background: #222; border: none; color: #fff; border-radius: 50%; width: 36px; height: 36px; font-size: 1.2em; cursor: pointer; margin: 0 16px;">▶</button>
+                <a href="#" id="next-btn" style="margin-left: 16px; background: none; border: none; color: #fff; font-size: 1.2em; text-decoration: none;">⏭</a>
+        </div>
+        <div style="width: 100%;">
+                <input type="range" id="music-progress" value="0" min="0" max="100" style="width: 100%;">
+        </div>
+        <audio id="audio" style="display:none;">
+                <source id="audio-source" src="audio/AIF Paramore.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+        </audio>
+        
+        <script>
+                // Song list
+                const songs = [
+                        {
+                                title: "Casual",
+                                artist: "Chappell Roan",
+                                src: "audio/C Chappell Roan.mp3",
+                                cover: "images/chappell.png"
+                        },
+                        {
+                                title: "Ain't It Fun",
+                                artist: "Paramore",
+                                src: "audio/A Paramore.mp3",
+                                cover: "images/paramore.jpeg"
+                        },
+                        {
+                                title: "light this graveyard",
+                                artist: "emily jeffri",
+                                src: "audio/L Emily Jeffri.mp3",
+                                cover: "images/emily.png"
+                        },
+                        {
+                                title: "Inkpot Gods",
+                                artist: "The Amazing Devil",
+                                src: "audio/I The Amazing Devil.mp3",
+                                cover: "images/tad.png"
+                        },
+                        {
+                                title: "R.I.P.",
+                                artist: "half•alive, The Walters",
+                                src: "audio/R half-alive.mp3",
+                                cover: "images/halfalive.png"
+                        },
+                        {
+                                title: "End Of It",
+                                artist: "Friday Pilots Club",
+                                src: "audio/E Friday Pilots Club.mp3",
+                                cover: "images/friday.jpeg"
+                        },
+                        {
+                                title: "NFWMB",
+                                artist: "Hozier",
+                                src: "audio/N Hozier.mp3",
+                                cover: "images/hozier.jpeg"
+                        },
+                        {
+                                title: "Enemy",
+                                artist: "Imagine Dragons, JID",
+                                src: "audio/E Imagine Dragons.mp3",
+                                cover: "images/enemy.png"
+                        }
+                ];
+
+                let currentSong = 0;
+
+                const audio = document.getElementById('audio');
+                const audioSource = document.getElementById('audio-source');
+                const progress = document.getElementById('music-progress');
+                const pauseBtn = document.getElementById('pause-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const prevBtn = document.getElementById('prev-btn');
+                const songTitle = document.getElementById('song-title');
+                const songArtist = document.getElementById('song-artist');
+                const coverImg = document.getElementById('cover-img');
+
+                function loadSong(index) {
+                        const song = songs[index];
+                        audioSource.src = song.src;
+                        audio.load();
+                        songTitle.textContent = song.title;
+                        songArtist.textContent = song.artist;
+                        coverImg.src = song.cover;
+                        coverImg.alt = song.artist + ": " + song.title;
+                        pauseBtn.textContent = '▶';
+                }
+
+                audio.addEventListener('timeupdate', function() {
+                        progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+                });
+
+                progress.addEventListener('input', function() {
+                        audio.currentTime = (progress.value / 100) * audio.duration;
+                });
+
+                pauseBtn.addEventListener('click', function() {
+                        if (audio.paused) {
+                                audio.play();
+                                pauseBtn.textContent = '⏸';
+                        } else {
+                                audio.pause();
+                                pauseBtn.textContent = '▶';
+                        }
+                });
+
+                nextBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        currentSong = (currentSong + 1) % songs.length;
+                        loadSong(currentSong);
+                });
+
+                prevBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        currentSong = (currentSong - 1 + songs.length) % songs.length;
+                        loadSong(currentSong);
+                });
+
+                audio.addEventListener('ended', function() {
+                        currentSong = (currentSong + 1) % songs.length;
+                        loadSong(currentSong);
+                });
+
+                // Initial load (no autoplay)
+                loadSong(currentSong);
+        </script>
+</div>
+
+
+
+</html>
+

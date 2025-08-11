@@ -1,0 +1,961 @@
+<!doctype html> 
+
+<html lang="en"> 
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Irene's Laptop: Messages</title>
+<link rel="stylesheet" href="styleCopy.css">
+<script src="java.js"></script>
+</head>
+
+<body>
+<div class="audio-player-container" style="width: 365px; margin-top: 320px; margin-left: 855px; background: #111; color: #fff; border-radius: 12px; padding: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; position:relative; bottom:20px;">
+        <a href="messages.html"><button style="position: sticky; margin-left:340px;">X</button></a>
+
+        <div style="display: flex; align-items: center; width: 100%; margin-bottom: 8px;">
+                <img id="cover-img" src="images/paramore.jpeg" alt="Paramore: Paramore" style="height: 80px; margin-right: 16px;">
+                <div style="display: flex; flex-direction: column;">
+                        <div id="song-title" style="font-size: 1.5em; font-weight: bold;">Ain't It Fun</div>
+                        <div id="song-artist" style="font-size: 1em; font-weight: lighter; color: #bbb; margin-top: 4px;">Paramore</div>
+                </div>
+        </div>
+        <div style="display: flex; align-items: center; width: 100%; justify-content: center; margin-bottom: 8px;">
+                <a href="#" id="prev-btn" style="margin-right: 16px; background: none; border: none; color: #fff; font-size: 1.2em; text-decoration: none;">⏮</a>
+                <button id="pause-btn" style="background: #222; border: none; color: #fff; border-radius: 50%; width: 36px; height: 36px; font-size: 1.2em; cursor: pointer; margin: 0 16px;">▶</button>
+                <a href="#" id="next-btn" style="margin-left: 16px; background: none; border: none; color: #fff; font-size: 1.2em; text-decoration: none;">⏭</a>
+        </div>
+        <div style="width: 100%;">
+                <input type="range" id="music-progress" value="0" min="0" max="100" style="width: 100%;">
+        </div>
+        <audio id="audio" style="display:none;">
+                <source id="audio-source" src="audio/AIF Paramore.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+        </audio>
+        
+        <script>
+                // Song list
+                const songs = [
+                        {
+                                title: "Casual",
+                                artist: "Chappell Roan",
+                                src: "audio/C Chappell Roan.mp3",
+                                cover: "images/chappell.png"
+                        },
+                        {
+                                title: "Ain't It Fun",
+                                artist: "Paramore",
+                                src: "audio/A Paramore.mp3",
+                                cover: "images/paramore.jpeg"
+                        },
+                        {
+                                title: "light this graveyard",
+                                artist: "emily jeffri",
+                                src: "audio/L Emily Jeffri.mp3",
+                                cover: "images/emily.png"
+                        },
+                        {
+                                title: "Inkpot Gods",
+                                artist: "The Amazing Devil",
+                                src: "audio/I The Amazing Devil.mp3",
+                                cover: "images/tad.png"
+                        },
+                        {
+                                title: "R.I.P.",
+                                artist: "half•alive, The Walters",
+                                src: "audio/R half-alive.mp3",
+                                cover: "images/halfalive.png"
+                        },
+                        {
+                                title: "End Of It",
+                                artist: "Friday Pilots Club",
+                                src: "audio/E Friday Pilots Club.mp3",
+                                cover: "images/friday.jpeg"
+                        },
+                        {
+                                title: "NFWMB",
+                                artist: "Hozier",
+                                src: "audio/N Hozier.mp3",
+                                cover: "images/hozier.jpeg"
+                        },
+                        {
+                                title: "Enemy",
+                                artist: "Imagine Dragons, JID",
+                                src: "audio/E Imagine Dragons.mp3",
+                                cover: "images/enemy.png"
+                        }
+                ];
+
+                let currentSong = 0;
+
+                const audio = document.getElementById('audio');
+                const audioSource = document.getElementById('audio-source');
+                const progress = document.getElementById('music-progress');
+                const pauseBtn = document.getElementById('pause-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const prevBtn = document.getElementById('prev-btn');
+                const songTitle = document.getElementById('song-title');
+                const songArtist = document.getElementById('song-artist');
+                const coverImg = document.getElementById('cover-img');
+
+                function loadSong(index) {
+                        const song = songs[index];
+                        audioSource.src = song.src;
+                        audio.load();
+                        songTitle.textContent = song.title;
+                        songArtist.textContent = song.artist;
+                        coverImg.src = song.cover;
+                        coverImg.alt = song.artist + ": " + song.title;
+                        pauseBtn.textContent = '▶';
+                }
+
+                audio.addEventListener('timeupdate', function() {
+                        progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+                });
+
+                progress.addEventListener('input', function() {
+                        audio.currentTime = (progress.value / 100) * audio.duration;
+                });
+
+                pauseBtn.addEventListener('click', function() {
+                        if (audio.paused) {
+                                audio.play();
+                                pauseBtn.textContent = '⏸';
+                        } else {
+                                audio.pause();
+                                pauseBtn.textContent = '▶';
+                        }
+                });
+
+                nextBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        currentSong = (currentSong + 1) % songs.length;
+                        loadSong(currentSong);
+                });
+
+                prevBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        currentSong = (currentSong - 1 + songs.length) % songs.length;
+                        loadSong(currentSong);
+                });
+
+                audio.addEventListener('ended', function() {
+                        currentSong = (currentSong + 1) % songs.length;
+                        loadSong(currentSong);
+                });
+
+                // Initial load (no autoplay)
+                loadSong(currentSong);
+        </script>
+</div>
+
+  <div class="navbar" id="myNavbar">
+    <a href="messagesWindows.html"><img src="images/icon.png" height="40px"></a>
+    <a href="music.html" class="active"><img src="images/messages.png" height="40px"></a>
+    <a href="messagesEmail.html"><img src="images/email.png" height="40px"></a>
+    <a href="browser.html"><img src="images/chrome.png" height="40px"></a>
+    <a href="document.html"><img src="images/document.png" height="40px"></a>
+      <a href="messages.html" class="active"><img src="images/music.png" height="40px"></a>
+       <img src="images/nointernet.png" height="20px" style="position: absolute; right: 145px; bottom:12px;">
+<img src="images/battery.png" height="20px" style="position: absolute; right: 115px; bottom:12px;">
+<p style="position:absolute; right: 36px; bottom:11px; font-size:small;"><span id="current-time"></span></p>
+<p style="position:absolute; right:30px; bottom: -8px;font-size:small">13/01/2052</p>
+
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString(); // Formats time based on user's locale
+  document.getElementById('current-time').textContent = formattedTime;
+}
+
+// Call the function once to display the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
+</script>
+</div>
+
+
+
+<!---Sticky note to do list-->
+<article style="background-color:rgb(255, 249, 158); position:fixed; right:60px; top:50px; height:250px; width:250px;">
+  <h2 style="text-align:center;">To-do list:</h2>
+  <p style="position:fixed; right:120px; top:100px;">- Respond to messages</p>
+  <p style="position:fixed; right: 109px; top:120px;">- Answer email from boss</p>
+    <p style="position:fixed; right:138px; top:140px;">- Read over draft doc</p>
+  <p style="position:fixed; right: 98px; top:160px;">- Continue researching EM</p>
+</article>
+
+  
+<div class="message-square">
+<a href="music.html"><button style="position: absolute; top: 4px; left: 4px; z-index: 2;">X</button></a>
+
+
+    <div class="chat-container">
+        
+        <p><b><i>[3 new messages: cal_amity]</i></b></p>
+        </p>
+        <div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> cal_amity</b></i>
+            <p>hey reenie i haven’t seen you in horizon for a while are you good?</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">1:13am</span>
+        </div>
+        <div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            not to like. pressure you or anything haha<p></p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">1:13am</span>
+        </div>
+        <div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            just it gets boring doing somersaults by myself yknow?<p></p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">1:14am</span>
+        </div>
+
+        <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>irenequeen </b></i><img src="images/irene.png" height="30px">
+            <p>Hey Cal</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">2:02am</span>
+        </div>
+        <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;"> 
+            Sorry IRL has gotten pretty busy<p></p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">2:03am</span>
+        </div>
+        <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            And by pretty busy I mean a metric ton of things just came crashing down that I am poorly equipped to deal with<p></p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">2:05am</span>
+        </div>
+
+
+        <div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> cal_amity</b></i>
+            <p>oh no is everything okay????</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">2:20am</span>
+</div>
+
+                   <div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+<p> i’m happy to listen if you wanna rant</p>            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">2:21am</span>
+</div>
+                   <div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+chilling in the fields rn if u wanna join n yell in a comfy place :)<p></p>
+<span class="msg-time-left" style="font-size: 0.85em; color: #888;">2:21am</span>
+
+        </div> 
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+Thanks for the offer but I literally don’t think I have time
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:40am
+</span>
+        </div>
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+I’m not up at horrible hours in the morning for fun
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:41am
+</span>
+        </div>
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+ <p>
+I don’t think I’ve slept in the past two days
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:42am
+</span>
+        </div>
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+But I’ll text while drafting this email, and then I probably have to go
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:43am
+</span>
+        </div>
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+And take a power nap
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:43am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+irene ur worrying me
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+2:47am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+but please do spill
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+2:48am
+</span>
+        </div>
+
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+Okay so FIRST of all my workplace got on my case for spending too much time online. Which:
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:53am
+</span>
+        </div>
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+A) I don’t even spend as much time in Ever as some of my coworkers, so why me specifically??
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:54am
+</span>
+        </div>
+
+
+  <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+B) Even the time I do spend is like. Within my off hours and not when I’m supposed to be working. They have a monitor. They can <i>check </i>this??????
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+2:56am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+wow i think that’s the most question marks i’ve ever seen you use
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+2:59am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+massive yikes
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+2:59am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+Oh no there’s more
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:01am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+It gets worse
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:01am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+So they write me up for this, right, and then
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:02am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+AND THEN
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:02am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+They put me to work drafting legal documents
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:03am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Wait, you remember what my company does, right?
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:04am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+uhhhh
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:06am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+kinda?
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:06am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+law stuff right???
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:06am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+Kinda
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:07am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Like we basically work as a lawyer on a case by case basis
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:08am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Our prices are exorbitant but we’re also really good, so
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:08am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Probably because there’s a whole team of us working ‘round the clock rather than Just One Guy
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:09am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Anyway so they put me to work drafting legal documents
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:10am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+mmhm
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:11am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+FOR A CASE AGAINST EVERMIND?
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:13am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+WHAT
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:13am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+YEAH I KNOW RIGHT?
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:14am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Like it’s not only a conflict of interest, it’s also a mammoth case against the biggest company of the century, <i>we are literally doomed to fail</i>?
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:15am
+</span> </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Apparently the argument is that EM’s VR is “disrupting quality work time and conflicting with typical company values”
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:16am
+</span> </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Whatever <i>that’s</i> supposed to mean
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:16am
+</span> </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+if you will excuse my french that is incredibly ****ed up
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:17am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+like yes wow let’s take a case against the company who has done SO much good in promoting mental health and prioritising the self etc. etc. that’ll do Wonders for our public image
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:18am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+politely
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:18am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+is your boss insane
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:19am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+Pretty much yeah
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:20am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+So anyway we’re all working around the clock, me in particular because they reprimanded me specifically for something I am not even the biggest user of—
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:22am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+And we’re all doomed anyway
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:23am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+Hate this
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:23am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+yeah i also hate this
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:23am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+in solidarity
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:24am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+but also that sucks dude
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:25am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+AND ON TOP OF THAT
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:26am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+uh oh
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:26am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+Yeah on Top of that
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:27am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+I’m pretty sure my EM got hacked??
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:28am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+WHAT
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:29am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+HOW
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:29am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+WHEN
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:30am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+???????
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:30am
+</span>
+        </div>
+
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+           <i><b>
+irenequeen 
+</b></i><img src="images/irene.png" height="30px">
+            <p>
+I wish I knew
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:30am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+I logged on the other day just for a sec or two
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:31am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+And my movements felt glitchy?
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:32am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+So I looked down at myself, as you do
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:33am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+And wholly went WTF out loud because it didn’t look like me
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:34am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+I changed my password immediately obviously
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:34am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+But I don’t know if that actually did anything
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:35am
+</span>
+        </div>
+
+
+ <div class="right-msg" style="background: #d1ffd6; border-radius: 10px; padding: 10px; margin-bottom: 10px; margin-left: auto; max-width: 70%; text-align: right;">
+            <p>
+SOMEONE has clearly been messing with my account anyway
+</p>
+            <span class="msg-time-right" style="font-size: 0.85em; color: #888;">
+3:36am
+</span>
+        </div>
+
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <img src="images/cal.png" height="30px"><i><b> 
+cal_amity
+</b></i>
+            <p>
+MASSIVE YIKES????
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:37am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+GENUINELY WTF???
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:37am
+</span>
+        </div>
+
+
+<div class="left-msg" style="background: #e3eaff; border-radius: 10px; padding: 10px; margin-bottom: 10px; max-width: 70%;">
+            <p>
+hang on isn’t ever supposed 2 b unhackable or sm
+</p>
+            <span class="msg-time-left" style="font-size: 0.85em; color: #888;">
+3:38am
+</span>
+        </div>
+
+
+  <!-- Send button       -->
+                     <button onclick="mypopupMessages()" style="cursor:pointer; position:relative; bottom: -40px; left: 445px;"><img src="images/send.png" height="40px"></a></button>
+ <img src="images/text message bar.png">
+
+</div>
+
+
+
+
+</body>
+</html>

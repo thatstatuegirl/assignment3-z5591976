@@ -1,0 +1,100 @@
+<!doctype html> 
+
+<html lang="en"> 
+
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Irene's Laptop: Web Browser</title> 
+<link rel="stylesheet" href="browserInternetStyle.css">
+<script src="java.js"></script></head>
+ 
+<body> 
+<!---Close button!!!!!-->
+                <a href="index.html"><button style="position: absolute; top: 15px; right: 15px; z-index: 2;">X</button></a>
+                
+
+<div class="windowsButton">
+
+<p style="position: absolute; top: 7px; left: 37px;"><b>Pinned</b></p>
+
+<a href="browserInternet.html">  <img src="images/chrome.png" class="windowsBrowser"></a>
+  <div style="position: absolute; top: 105px; left: 38px; text-align: center; font-size: 80%;">Browser</div>
+
+    <a href="document.html"><img src="images/document.png" class="windowsDocuments"></a>
+  <div style="position: absolute; top: 105px; left: 128px; text-align: center; font-size: 80%;">Documents</div>
+
+      <a href="email.html"><img src="images/email.png" class="windowsEmail"></a>
+  <div style="position: absolute; top: 105px; left: 241px; text-align: center; font-size: 80%;">Email</div>
+
+
+    <a href="messages.html"><img src="images/messages.png" class="windowsMessages"></a>
+      <div style="position: absolute; top: 203px; left: 35px; text-align: center; font-size: 80%;">Messages</div>
+
+     <a href="browserinternetmusic.html"><img src="images/music.png" class="windowsMusic"></a>
+          <div style="position: absolute; top: 203px; left: 125px; text-align: center; font-size: 80%;">Music Player</div>
+
+
+
+<div style="position: absolute; top: 310px; left: 37px; text-align: center; font-size:90%"><b>Recently used</b></div>
+
+
+    <a href="email.html"><img src="images/email.png" class="windowsEmail2"></a>
+              <div style="position: absolute; top: 350px; left: 110px; text-align: center; font-size: 80%;">Email</div>
+                <div style="position: absolute; top: 367px; left: 109px; text-align: center; font-size: 60%;"><i>Yesterday 11:57pm</i></div>
+</div>
+
+  <!-- Bottom Navbar here -->
+<div class="navbar" id="myNavbar">
+  <a href="browserInternet.html"><img src="images/icon.png" height="40px"></a>
+ <a href="messages.html"><img src="images/messages.png" height="40px"></a></button>
+  <a href="email.html"><img src="images/email.png" height="40px"></a>
+  <a href="index.html" class="active"><img src="images/chrome.png" height="40px"></a>
+  <a href="document.html"><img src="images/document.png" height="40px"></a>
+  <a href="browserinternetmusic.html"><img src="images/music.png" height="40px"></a>
+   <img src="images/nointernet.png" height="20px" style="position: absolute; right: 145px; bottom:12px;">
+<img src="images/battery.png" height="20px" style="position: absolute; right: 115px; bottom:12px;">
+<p style="position:absolute; right: 36px; bottom:11px; font-size:small;"><span id="current-time"></span></p>
+<p style="position:absolute; right:30px; bottom: -8px;font-size:small">13/01/2052</p>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString(); // Formats time based on user's locale
+  document.getElementById('current-time').textContent = formattedTime;
+}
+
+// Call the function once to display the time immediately
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
+</script>
+</div>
+
+<!-- Top Navbar here -->
+<div class="topnav">
+  <a class="active" href="browserInternet.html">EverMind: Forums</a>
+  <a href="browser1.html">EverMind: Support</a>
+  <a href="browser2.html">cissalie on Blogblr</a></div>
+
+
+ <div class="row1" style="height: 30px; left:0;">
+ <a href="browser.html"> <button> ◄ </button></a>
+   <a href="browserInternet.html"> <button style="margin-left:10px;"> ⟳ </button></a>
+    <p>‎
+    https://www.evermind-reality.com/forums/english/gen/bug-reports</p>
+</div>
+
+
+    <p class="center"><img src="images/proxyerror.png" style="height:50px;  margin-top:100px;"></p>
+<p class="center" style="font-size:x-large; color:rgb(58, 58, 58);">There is no Internet connection.</p>
+<p class="center" style="color:rgb(103, 103, 103);">There is something wrong with the proxy server, or the address is incorrect.</p>
+<p class="center" style="color:rgb(103, 103, 103);">Try:</p>
+<ul class="center" style="color:rgb(103, 103, 103);">• Contacting the system admin</ul>
+<ul class="center" style="color:rgb(103, 103, 103);">• Checking the proxy address</ul>
+<ul class="center" style="color:rgb(103, 103, 103);">• Running System Network Diagnostics</ul>
+<p class="center" style="font-size:small;">‎</p>
+<p class="center" style="font-size:small; color:rgb(145, 145, 145);">ERR_PROXY_CONNECTION_FAILED</p>
+
+    </body>
